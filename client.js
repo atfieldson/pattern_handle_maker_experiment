@@ -10,30 +10,64 @@ function draw() {
     let p = 0;
 
     let b16 = bw / 16;
-    let b8 = bw / 8;
-    let hypotenuse = Math.sqrt((b16 * b16) + (b16 * b16));
     let color1 = 'blue';
     let color2 = 'yellow';
-    let pattern1 = [0, 1, 4, 5, 8, 9, 12, 13, 16 ];
+    let pattern1 = [0, 1, 4, 5, 8, 9, 12, 13, 16];
 
-    for ( j = 0; j <= bw + b16; j += b16 ){ 
-        for (let i =  j; i <= bw + b16; i += b16) {
-            console.log('hello');
-            c.beginPath();
-            c.moveTo(i, i);
-            c.lineTo(i + b16, i + b16);
-            c.lineTo(i, i + b16 * 2);
-            c.lineTo(i - b16, i + b16)
-            c.closePath();
-            c.stroke();
-            if ( pattern1.includes( i/b16 ) ) {
-                c.fillStyle = color1;
-            } else {
-                c.fillStyle = color2
-            } 
-            c.fill(); 
-        };
+    for (let i = 0; i <= bw + b16; i += b16) {
+        console.log('hello');
+        c.beginPath();
+        c.moveTo(i, i);
+        c.lineTo(i + b16, i + b16);
+        c.lineTo(i, i + b16 * 2);
+        c.lineTo(i - b16, i + b16)
+        c.closePath();
+        c.stroke();
+        if (pattern1.includes(i / b16)) {
+            c.fillStyle = color1;
+        } else {
+            c.fillStyle = color2;
+        }
+        c.fill();
+    };
+
+    for (let i = b16; i <= bw + b16; i += b16) {
+        console.log('hello');
+        c.beginPath();
+        c.moveTo(i + b16, i - b16);
+        c.lineTo(i, i);
+        c.lineTo(i - b16, i - b16);
+        c.lineTo(i, i - b16 * 2);
+        c.closePath();
+        c.stroke();
+       //can't figure out why this won't work, it seems to work above.  
+       if (pattern1.includes( i/b16 )) {
+        c.fillstyle == color1;
+    } else {
+        c.fillStyle == color2;
     }
+        c.fill();
+    };
+
+
+
+    // for (let i = 50; i <= bw + b16; i += b16) {
+    //     console.log('hello');
+    //     c.beginPath();
+    //     c.moveTo(i, i);
+    //     c.lineTo(i + b16, i + b16);
+    //     c.lineTo(i, i + b16 * 2);
+    //     c.lineTo(i - b16, i + b16)
+    //     c.closePath();
+    //     c.stroke();
+    //     if (pattern1.includes(i / b16)) {
+    //         c.fillStyle = color1;
+    //     } else {
+    //         c.fillStyle = color2
+    //     }
+    //     c.fill();
+    // };
+
 
 
 
