@@ -1,0 +1,10 @@
+#canvasDiv{
+    width: 100%;
+    text-align: center;
+}
+
+canvas {
+    border: 2px solid black;
+    display: inline;
+}
+
