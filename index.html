@@ -11,10 +11,11 @@
 <body ng-app="HandleDesignApp">
     <div class="container" ng-controller="HandleDesignController as vm">
     <h1>Whip Handle Designer</h1>
-    <input type="text" placeholder="First Color" ng-model="vm.color1" ><br>
-    <input type="text" placeholder="Second Color" ng-model="vm.color2"><br>
+    <input type="text" placeholder="color 1" ng-model="vm.color1" ><br>
+    <input type="text" placeholder="color 2" ng-model="vm.color2"><br>
     <button ng-click="vm.boxPattern(vm.color1, vm.color2)">Box Pattern</button><br>
     <button ng-click="vm.verticalStripPattern( vm.color1, vm.color2)">Vertical Strip Pattern</button><br>
+    <button ng-click="vm.emeraldPattern( vm.color1, vm.color2)">Emerald Pattern</button><br>
     <div id="canvasDiv">
         <canvas id="tutorial" width="400" height="1000"></canvas>
     </div>
