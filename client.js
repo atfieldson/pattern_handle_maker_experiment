@@ -19,17 +19,19 @@ app.controller('HandleDesignController', [function(){
         let pattern3 = [0, 2, 7, 11, 16];
         let pattern4 = [1, 6, 8, 10, 15];
         let pattern5 = [0, 5, 9, 14, 16];
-        let row1 = [-20, -15, -10, -5, 0, 5, 10, 15, 20, 25];
-        let row2 = [-19, -14, -9, -4, 1, 6, 11, 16, 21];
-        let row3 = [-18, -13, -8, -3, 2, 7, 12, 17, 22];
-        let row4 = [-17, -12, -7, -2, 3, 8, 13, 18, 23, 28]
+        let pattern6 = [0, 5, 6, 7, 8, 10, 11, 12, 13];
+        let row1 =  [0];
+        let row2 = [1];
+        let row3 = [2];
+        let row4 = [3];
+        let row5 = [4];
         //row 5 is the else 
         for (j = -b16 * 16; j <= b16 * 40; j += b16 * 2) {
             for (let i = -b16 * 8; i <= bw + j; i += b16) {
                 console.log('hello');
                 c.beginPath();
-                c.moveTo(i - j, i + b16 * 2);
-                c.lineTo(i - j - b16, i + b16);
+                c.moveTo(i - j, i + b16 * 2 );
+                c.lineTo(i - j - b16 , i + b16);
                 c.lineTo(i - j, i);
                 c.lineTo(i - j + b16, i + b16)
                 c.closePath();
@@ -65,13 +67,19 @@ app.controller('HandleDesignController', [function(){
                         } else{
                             c.fillStyle = color2;
                         }
-                    } else{
+                    } else if (row5.includes( j/ (b16*2) )){
                         if (pattern5.includes(i / b16 -8)) {
                             c.fillStyle = color1;
                         } else{
                             c.fillStyle = color2;
                         }
-                    }                                   
+                    }   else { 
+                        if (pattern6.includes(i/b16-10)){
+                            c.fillStyle = color1;
+                        } else{
+                            c.fillStyle = color2; 
+                        }
+                    }                              
                 c.fill();
             };//end for i 
         }//end for j
