@@ -14,26 +14,26 @@ app.controller('HandleDesignController', [function(){
     self.egyptianEyePattern = function (color1, color2) {
         let bw = 400;
         let b16 = bw / 16;
-        let pattern1 = [0, 1, 2, 3, 5, 6, 7, 8, 13, 17, 22, 24, 26, 31];
+        let pattern1 = [0, 1, 2, 3, 5, 6, 7, 8, 13 ];
         let pattern2 = [3, 8, 9, 10, 11, 13, 14, 15, 16];
         let pattern3 = [0, 2, 7, 11, 16];
         let pattern4 = [1, 6, 8, 10, 15];
         let pattern5 = [0, 5, 9, 14, 16];
-        let pattern6 = [0, 5, 6, 7, 8, 10, 11, 12, 13];
-        let row1 =  [0];
-        let row2 = [1];
-        let row3 = [2];
-        let row4 = [3];
-        let row5 = [4];
+        // let pattern6 = [0, 5, 6, 7, 8, 10, 11, 12, 13];
+        let row1 =  [-10, -5, 0, 5, 10, 15];
+        let row2 = [-9, -4, 1, 6, 11, 16];
+        let row3 = [-8, -3, 2, 7, 12, 17];
+        let row4 = [-7, -2, 3, 8, 13, 18];
+        // let row5 = [4];
         //row 5 is the else 
-        for (j = -b16 * 16; j <= b16 * 40; j += b16 * 2) {
-            for (let i = -b16 * 8; i <= bw + j; i += b16) {
+        for (j = -b16*16; j <= b16 * 40; j += b16 * 2) {
+            for (let i = -b16*8; i <= bw*2; i += b16) {
                 console.log('hello');
                 c.beginPath();
-                c.moveTo(i - j, i + b16 * 2 );
-                c.lineTo(i - j - b16 , i + b16);
-                c.lineTo(i - j, i);
-                c.lineTo(i - j + b16, i + b16)
+                c.moveTo(i, i + j + 2*b16 );
+                c.lineTo(i - b16 , i + j + b16); 
+                c.lineTo(i, i + j);
+                c.lineTo(i + b16, i + j + b16)
                 c.closePath();
                 c.stroke();
                     //The egyptian eye does not function like Emerald did, 
@@ -50,34 +50,28 @@ app.controller('HandleDesignController', [function(){
                             c.fillStyle = color2;
                         }
                     }else if ( row2.includes( j/ (b16*2) )){
-                        if (pattern2.includes(i / b16 - 2)) {
+                        if (pattern2.includes(i / b16)) {
                             c.fillStyle = color1;
                         } else{
                             c.fillStyle = color2;
                         }
                     }else if ( row3.includes( j/ (b16*2) )){                       
-                        if (pattern3.includes(i / b16 -4)) {
+                        if (pattern3.includes(i / b16)) {
                             c.fillStyle = color1;
                         } else{
                             c.fillStyle = color2;
                         }
                     }else if ( row4.includes( j/ (b16*2) )){                       
-                        if (pattern4.includes(i / b16 -6)) {
+                        if (pattern4.includes(i / b16)) {
                             c.fillStyle = color1;
                         } else{
                             c.fillStyle = color2;
                         }
-                    } else if (row5.includes( j/ (b16*2) )){
-                        if (pattern5.includes(i / b16 -8)) {
+                    } else {
+                        if (pattern5.includes(i / b16)) {
                             c.fillStyle = color1;
                         } else{
                             c.fillStyle = color2;
-                        }
-                    }   else { 
-                        if (pattern6.includes(i/b16-10)){
-                            c.fillStyle = color1;
-                        } else{
-                            c.fillStyle = color2; 
                         }
                     }                              
                 c.fill();
